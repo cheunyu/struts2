@@ -5,10 +5,11 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
-        <constant name="struts.devMode" value="true" />
-            <package name="helloworld" extends="struts-default">
-                <action name="hello" class="HelloWorldAction" method="execute">
-                    <result name="success">/helloworld.jsp</result>
+        <include file="struts-1.xml"></include> <!-- 配置文件模块化 -->
+        <constant name="struts.devMode" value="true" /> <!-- 开发模式打开，在日志文件中查看更多调试信息 -->
+            <package name="helloworld" extends="struts-default">    <!-- name唯一标识，extends继承另外package的所有配置 -->
+                <action name="hello" class="HelloWorldAction" method="execute"> <!-- name资源访问标识，class处理web请求的类路径，method处理web请求的方法 -->
+                    <result name="success">/helloworld.jsp</result> <!-- name响应值默认success，type响应类型 -->
                 </action>
             </package>
 </struts>
