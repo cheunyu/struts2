@@ -8,9 +8,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>Hello World</title>
   </head>
   <body>
-  $END$
+    <h1>Hello World From Struts2</h1>
+    <form action="hello.action">
+    <label for="name">Please enter your name</label>
+        <input type="text" name="name" id=""/>
+        <input type="submit" value="Say Hello" />
+    </form>
   </body>
 </html>
