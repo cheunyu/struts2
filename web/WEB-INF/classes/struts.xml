@@ -5,12 +5,19 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
-        <include file="struts-1.xml"></include> <!-- 配置文件模块化 -->
-        <constant name="struts.devMode" value="true" /> <!-- 开发模式打开，在日志文件中查看更多调试信息 -->
-            <package name="helloworld" extends="struts-default">    <!-- name唯一标识，extends继承另外package的所有配置 -->
-                <action name="hello" class="ActionSupportExample.HelloWorldAction" method="execute"> <!-- name资源访问标识，class处理web请求的类路径，method处理web请求的方法 -->
-                    <result name="success">/helloworld.jsp</result> <!-- name响应值默认success，type响应类型 -->
-                    <result name="error">/accessdenied.jsp</result> <!-- name响应值默认success，type响应类型 -->
-                </action>
-            </package>
+    <include file="struts-1.xml"></include><!-- 配置文件模块化 -->
+    <constant name="struts.devMode" value="true" /> <!-- 开发模式打开，在日志文件中查看更多调试信息 -->
+    <package name="helloworld" extends="struts-default">    <!-- name唯一标识，extends继承另外package的所有配置 -->
+        <interceptors>
+            <interceptor name="interceptorsExample" class="Interceptor.InterceptorExample"></interceptor>
+            <interceptor name="helloInterceptor" class="Interceptor.HelloInterceptor"></interceptor>
+        </interceptors>
+        <action name="hello" class="ActionInterfaceExample.HelloWorldAction" method="execute"> <!-- name资源访问标识，class处理web请求的类路径，method处理web请求的方法 -->
+            <interceptor-ref name="timer" ></interceptor-ref>   <!-- struts2内置拦截器，提供action执行时间分析工具 -->
+            <interceptor-ref name="interceptorsExample"></interceptor-ref>  <!-- 第一个拦截器 -->
+            <interceptor-ref name="helloInterceptor"></interceptor-ref> <!-- 第二个拦截器 -->
+            <result name="success">/helloworld.jsp</result> <!-- name响应值默认success，type响应类型 -->
+            <result name="error">/accessdenied.jsp</result> <!-- name响应值默认success，type响应类型 -->
+        </action>
+    </package>
 </struts>

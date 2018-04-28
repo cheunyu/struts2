@@ -5,8 +5,7 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
-        <include file="struts-1.xml"></include>
         <constant name="struts.devMode" value="true" />
-            <package name="xxx" extends="struts-default">
+            <package name="default" extends="struts-default">
             </package>
 </struts>
