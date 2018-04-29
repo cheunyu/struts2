@@ -19,5 +19,18 @@
             <result name="success">/helloworld.jsp</result> <!-- name响应值默认success，type响应类型 -->
             <result name="error">/accessdenied.jsp</result> <!-- name响应值默认success，type响应类型 -->
         </action>
+        <action name="redirect" class="redirect.RedirectExample">
+            <result name="success">/redirect.jsp</result>
+        </action>
+        <action name="valuestack" class="valuestack.HelloAction">
+            <result name="success">/valuestack.jsp</result>
+        </action>
+        <action name="upload" class="fileupload.FileUpLoadAction">
+            <interceptor-ref name="fileUpload">
+                <param name="allowedTypes">application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain</param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+            <result name="success">/fileupload.jsp</result>
+        </action>
     </package>
 </struts>
