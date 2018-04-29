@@ -12,6 +12,7 @@
             <interceptor name="interceptorsExample" class="Interceptor.InterceptorExample"></interceptor>
             <interceptor name="helloInterceptor" class="Interceptor.HelloInterceptor"></interceptor>
         </interceptors>
+
         <action name="hello" class="ActionInterfaceExample.HelloWorldAction" method="execute"> <!-- name资源访问标识，class处理web请求的类路径，method处理web请求的方法 -->
             <interceptor-ref name="timer" ></interceptor-ref>   <!-- struts2内置拦截器，提供action执行时间分析工具 -->
             <interceptor-ref name="interceptorsExample"></interceptor-ref>  <!-- 第一个拦截器 -->
@@ -25,12 +26,18 @@
         <action name="valuestack" class="valuestack.HelloAction">
             <result name="success">/valuestack.jsp</result>
         </action>
+
         <action name="upload" class="fileupload.FileUpLoadAction">
             <interceptor-ref name="fileUpload">
-                <param name="allowedTypes">application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain</param>
+                <param name="allowedTypes">image/jpeg,image/gif</param>
             </interceptor-ref>
-            <interceptor-ref name="defaultStack"></interceptor-ref>
-            <result name="success">/fileupload.jsp</result>
+            <interceptor-ref name="basicStack"></interceptor-ref>
+            <result name="success">/fileupload/success.jsp</result>
+            <result name="error">/fileupload/error.jsp</result>
+        </action>
+        <action name="validate" class="validate.ValidateAction" method="execute">
+            <result name="input">/index.jsp</result>
+            <result name="success">/validatesuccess.jsp</result>
         </action>
     </package>
 </struts>

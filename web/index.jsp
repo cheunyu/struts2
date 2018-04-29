@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: foo
@@ -14,7 +15,7 @@
     <h1>Hello World From Struts2</h1>
     <form action="hello.action">
     <label for="name">Please enter your name</label>
-        <input type="text" name="name" id=""/>
+        <input type="text" name="name"/>
         <input type="submit" value="Say Hello" />
     </form>
     <hr/>
@@ -26,7 +27,7 @@
     <form action="valuestack.action">
         <h5>valuestack</h5>
         <label for="name">Please enter your name</label>
-        <input type="text" name="name" id=""/>
+        <input type="text" name="name"/>
         <input type="submit" value="Say Hello" />
     </form>
     <hr/>
@@ -35,6 +36,13 @@
         Upload your file
         <input type="file" name="myFile"/>
         <input type="submit" value="Upload" />
+    </form>
+    <hr/>
+    <form action="validate.action">
+        <h5>Validate</h5>
+        <input type="text" name="name"/>
+        <input type="text" name="age"/>
+        <input type="submit" value="Say Hello" />
     </form>
   </body>
 </html>

@@ -50,13 +50,17 @@ public class FileUpLoadAction extends ActionSupport {
     }
 
     @Override
-    public String execute() throws Exception {
+    public String execute() {
         destPath = "d:/temp/";
+        try {
             System.out.println("Src File name: " + myFile);
             System.out.println("Dst File name: " + myFileFileName);
             File destFile = new File(destPath, myFileFileName);
             FileUtils.copyFile(myFile, destFile);
-
+        } catch (IOException e) {
+            e.printStackTrace();
+            return this.ERROR;
+        }
         return this.SUCCESS;
     }
 }
