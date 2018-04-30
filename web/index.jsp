@@ -50,5 +50,12 @@
         <input type="text" name="name"/>
         <input type="submit" value="Say Hello" />
     </form>
+    <hr/>
+    <form action="annotation">
+        <h5>annotation</h5>
+        <input type="text" name="name"/>
+        <input type="text" name="age"/>
+        <input type="submit" value="Say Hello" />
+    </form>
   </body>
 </html>
