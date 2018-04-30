@@ -30,6 +30,7 @@
         <action name="upload" class="fileupload.FileUpLoadAction">
             <interceptor-ref name="fileUpload">
                 <param name="allowedTypes">image/jpeg,image/gif</param>
+                <param name="maximumSize">4000000</param>
             </interceptor-ref>
             <interceptor-ref name="basicStack"></interceptor-ref>
             <result name="success">/fileupload/success.jsp</result>
@@ -38,6 +39,10 @@
         <action name="validate" class="validate.ValidateAction" method="execute">
             <result name="input">/index.jsp</result>
             <result name="success">/validatesuccess.jsp</result>
+        </action>
+        <action name="exception" class="exception.ExceptionAction">
+            <exception-mapping exception="java.lang.NullPointerException" result="error" />
+            <result name="error">/exception/exception.jsp</result>
         </action>
     </package>
 </struts>

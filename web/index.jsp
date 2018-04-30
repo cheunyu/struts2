@@ -44,5 +44,11 @@
         <input type="text" name="age"/>
         <input type="submit" value="Say Hello" />
     </form>
+    <hr/>
+    <form action="exception.action">
+        <h5>exception</h5>
+        <input type="text" name="name"/>
+        <input type="submit" value="Say Hello" />
+    </form>
   </body>
 </html>
